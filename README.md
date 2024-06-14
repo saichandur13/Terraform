@@ -28,6 +28,15 @@ functions meta data
 count
 local variables
 state file >> granular changes to be updated 
-resource "azurerm_virtual_network" "vnet"{
-    name : "vent1" ## defining the attributes as key:"value" if it is string best pratices use "
-}
+### non-interactive login through programmatic any programm we want to authenticate that is called service principle.
+RBAC >>Rollbased access control below are the list like owner,contributor,reader
+## --role="owner" >> on a top level he is head he can create destroy manage resource and provide premission to others
+## --role="contribution" >> next contribution can create dlete destroy resource cannot provide premission
+## --role="reader" >> can view the infra 
+### Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management
+az login >> it will provide metadata 
+ad >> active directory sp >> serice principle 
+which create user account and premission.
+
+below command will create user account and attach the roles and link to the subscription
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/20000000-0000-0000-0000-000000000000" 
